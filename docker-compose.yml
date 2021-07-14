@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  mydb:
+    image: mysql:8.0.25
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nuxt-app
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mydb:/var/lib/mysql
+
+  myapi:
+    image: myapi
+    build:
+      context: api
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:3000
+    volumes:
+      - ./api:/app
+
+  myapp:
+    image: myapp
+    build:
+      context: myapp
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./myapp:/app
+
+volumes:
+  mydb:
