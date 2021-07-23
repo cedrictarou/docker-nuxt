@@ -18,8 +18,11 @@ services:
     build:
       context: api
       dockerfile: ./Dockerfile
+    container_name: myapi
     ports:
       - 8080:3000
+    networks:
+      - app_network
     volumes:
       - ./api:/app
 
@@ -28,10 +31,16 @@ services:
     build:
       context: myapp
       dockerfile: ./Dockerfile
+    container_name: myapp
     ports:
       - 3000:3000
+    networks:
+      - app_network
     volumes:
       - ./myapp:/app
 
 volumes:
   mydb:
+
+networks:
+  app_network:

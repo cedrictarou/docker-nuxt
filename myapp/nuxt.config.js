@@ -3,7 +3,7 @@ export default {
   head: {
     title: 'myapp',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
@@ -29,7 +29,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+  // axios: {
+  //   baseURL: 'http://myapi:8080/',
+  //   browserBaseURL: 'http://localhost:8080/api',
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

@@ -6,17 +6,17 @@ router.get('/', (req, res) => {
   const todos = [
     {
       id: 1,
-      taskName: 'study nuxt.js',
+      task: 'study nuxt.js',
       isDone: false,
     },
     {
       id: 2,
-      taskName: 'study express.js',
+      task: 'study express.js',
       isDone: false,
     },
     {
       id: 3,
-      taskName: 'study typescript.js',
+      task: 'study typescript.js',
       isDone: false,
     },
   ];
