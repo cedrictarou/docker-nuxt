@@ -1,21 +1,5 @@
 export const state = () => ({
-  list: [
-    {
-      id: 1,
-      task: 'study nuxt.js',
-      isDone: true,
-    },
-    {
-      id: 2,
-      task: 'study express.js',
-      isDone: false,
-    },
-    {
-      id: 3,
-      task: 'study typescript.js',
-      isDone: false,
-    },
-  ],
+  list: [],
 })
 
 export const mutations = {
@@ -34,5 +18,8 @@ export const mutations = {
   },
   toggle(state, todo) {
     todo.isDone = !todo.isDone
+  },
+  setTodos(state, todos) {
+    state.list.push(...todos)
   },
 }

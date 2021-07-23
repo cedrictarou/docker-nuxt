@@ -1,5 +1,8 @@
 version: '3.4'
 
+networks:
+  app_network:
+
 services:
   mydb:
     image: mysql:8.0.25
@@ -20,7 +23,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: myapi
     ports:
-      - 8080:3000
+      - 8080:8080
     networks:
       - app_network
     volumes:
@@ -41,6 +44,3 @@ services:
 
 volumes:
   mydb:
-
-networks:
-  app_network:

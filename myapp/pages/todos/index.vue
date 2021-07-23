@@ -3,11 +3,13 @@
     <div>
       <h1>Todo App</h1>
       <div>
-        <input
-          placeholder="What needs to be done?"
-          type="text"
-          @keyup.enter="addTodo"
-        />
+        <div>
+          <input
+            placeholder="What needs to be done?"
+            type="text"
+            @keyup.enter="addTodo"
+          />
+        </div>
         <table>
           <thead>
             <tr>
@@ -41,7 +43,7 @@
 export default {
   data() {
     return {
-      tableHeaders: ['ID', 'TASK', 'EDIT', 'CHECK'],
+      tableHeaders: ['ID', 'TASK', 'EDIT', 'DELETE', 'CHECK'],
     }
   },
   computed: {
