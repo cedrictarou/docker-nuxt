@@ -1,25 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const todosController = require('../controllers/todosController');
 
-router.get('/', (req, res) => {
-  // res.send('Hello World!');
-  const todos = [
-    {
-      id: 1,
-      task: 'study nuxt.js',
-      isDone: false,
-    },
-    {
-      id: 2,
-      task: 'study express.js',
-      isDone: false,
-    },
-    {
-      id: 3,
-      task: 'study typescript.js',
-      isDone: false,
-    },
-  ];
-  res.json(todos);
-});
+router.get('/', todosController.showTodos);
+router.post('/', todosController.createTodo);
+router.put('/', todosController.updateTodo);
+router.delete('/:id', todosController.removeTodo);
+
 module.exports = router;

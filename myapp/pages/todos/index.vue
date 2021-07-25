@@ -19,8 +19,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="todo in todos" :key="todo.id">
-              <th>{{ todo.id }}</th>
+            <tr v-for="(todo, index) in todos" :key="todo.id">
+              <th>{{ index + 1 }}</th>
               <td :class="{ done: todo.isDone }">{{ todo.task }}</td>
               <td><button @click="updateTodo(todo)">Edit</button></td>
               <td><button @click="removeTodo(todo)">Delete</button></td>
@@ -48,25 +48,28 @@ export default {
   },
   computed: {
     todos() {
-      return this.$store.state.todos.list
+      return this.$store.getters['todos/list']
     },
   },
   methods: {
     addTodo(e) {
-      this.$store.commit('todos/add', e.target.value)
+      this.$store.dispatch('todos/addToApi', e.target.value)
       e.target.value = ''
     },
     updateTodo(todo) {
       const updatedTask = prompt('Edit your task.', todo.task)
       if (updatedTask !== null || '') {
-        this.$store.commit('todos/update', { todo, updatedTask })
+        this.$store.dispatch('todos/updateOnApi', { todo, updatedTask })
       }
     },
     removeTodo(todo) {
-      this.$store.commit('todos/remove', todo)
+      const result = confirm('Are you sure?')
+      if (result) {
+        this.$store.dispatch('todos/remove', todo)
+      }
     },
     toggle(todo) {
-      this.$store.commit('todos/toggle', todo)
+      this.$store.dispatch('todos/toggle', todo)
     },
   },
 }

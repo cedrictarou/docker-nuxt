@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "nuxt-app",
+    "host": "mydb",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "nuxt-app",
+    "host": "mydb",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "root",
+    "database": "nuxt-app",
+    "host": "mydb",
+    "dialect": "mysql"
+  }
+}

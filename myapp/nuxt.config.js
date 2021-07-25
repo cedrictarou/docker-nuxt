@@ -30,8 +30,10 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/axios'],
-  axios: {},
-
+  axios: {
+    baseURL: 'http://myapi:8080',
+    browserBaseURL: 'http://localhost:8080',
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   server: {
